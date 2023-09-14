@@ -4,71 +4,71 @@
       "image": "https://i.ibb.co/2SC0NJC/Rectangle-2-3.png",
       "courseName": "Introduction to Web Development",
       "shortDescription": "Learn the basics of HTML, CSS, and JavaScript in this introductory course.",
-      "price": "$99",
-      "creditHours": "3"
+      "price": 99,
+      "creditHours": 3
     },
     {
       "id": 2,
       "image": "https://i.ibb.co/G2W3pvt/Rectangle-2-4.png",
       "courseName": "Advanced Python Programming",
       "shortDescription": "Dive deep into Python's advanced features and libraries.",
-      "price": "$120",
-      "creditHours": "4"
+      "price": 120,
+      "creditHours": 4
     },
     {
       "id": 3,
       "image": "https://i.ibb.co/R2KJyhB/Rectangle-2-5.png",
       "courseName": "Machine Learning for Beginners",
       "shortDescription": "Understand the foundations of ML with hands-on projects.",
-      "price": "$150",
-      "creditHours": "4"
+      "price": 150,
+      "creditHours": 4
     },
     {
       "id": 4,
       "image": "https://i.ibb.co/r4gPzsp/Rectangle-2-6.png",
       "courseName": "Digital Marketing Essentials",
       "shortDescription": "Master the basics of SEO, SEM, and social media marketing.",
-      "price": "$90",
-      "creditHours": "3"
+      "price": 90,
+      "creditHours": 3
     },
     {
       "id": 5,
       "image": "https://i.ibb.co/TgZWFVM/Rectangle-3.png",
       "courseName": "UX/UI Design Principles",
       "shortDescription": "Design user-friendly and visually appealing digital interfaces.",
-      "price": "$110",
-      "creditHours": "3"
+      "price": 110,
+      "creditHours": 3
     },
     {
       "id": 6,
       "image": "https://i.ibb.co/KN7FyQB/Rectangle-3-1.png",
       "courseName": "Data Structures & Algorithms",
       "shortDescription": "Master the core concepts of computer science.",
-      "price": "$130",
-      "creditHours": "4"
+      "price": 130,
+      "creditHours": 4
     },
     {
       "id": 7,
       "image": "https://i.ibb.co/S6jBdRG/Rectangle-2.png",
       "courseName": "Mobile App Development",
       "shortDescription": "Design and develop efficient mobile applications.",
-      "price": "$140",
-      "creditHours": "4"
+      "price": 140,
+      "creditHours": 4
     },
     {
       "id": 8,
       "image": "https://i.ibb.co/mFxYRsw/Rectangle-2-1.png",
       "courseName": "Cloud Computing Basics",
       "shortDescription": "Get started with AWS, Azure, and Google Cloud.",
-      "price": "$125",
-      "creditHours": "4"
+      "price": 125,
+      "creditHours": 4
     },
     {
       "id": 9,
       "image": "https://i.ibb.co/LY3VyY2/Rectangle-2-2.png",
       "courseName": "Database Design and Management",
       "shortDescription": "Understand SQL and NoSQL databases from the ground up.",
-      "price": "$100",
-      "creditHours": "3"
+      "price": 100,
+      "creditHours": 3
     }
   ]
