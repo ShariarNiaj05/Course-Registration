@@ -1,29 +1,24 @@
 import React from 'react';
 
-const Cart = ({ selectedCourse, remainingCredit, totalCreditHour }) => {
-    // const {courseName, creditHours, id, price} = selectedCourse
-    console.log(selectedCourse);
+const Cart = ({ selectedCourse, remainingCredit, totalCreditHour, totalPrice }) => {
 
     // let count = 1;
     return (
-        <div className='mx-auto px-5 mt-5'>
-            <h2>Total Credit remainig: { remainingCredit}</h2>
-            <h3 className='text-xl '>Selected Course: { selectedCourse.length}</h3>
+        <div className='mx-auto px-5 mt-5 p-10 w-[500px] h-2/3 border border-red-500'>
+            <h2 className='text-lg text-blue-500 text-left mb-5'>Total Credit Remaining: {remainingCredit}</h2>
+            <hr />
+            <h3 className='text-xl text-left text-gray-400'>Selected Course: { selectedCourse.length}</h3>
             {
                 selectedCourse.map((course, idx) => (
-                    <li>{course.courseName}</li>  
+                    <li key={idx}>{course.courseName}</li>  
                 ))
             }
-            <h2>Total Credit Hour: { totalCreditHour}</h2>
+            <hr />
+            <h2 className='text-left mt-3 mb-3 text-gray-400'>Total Credit Hour: {totalCreditHour}</h2>
+            <hr />
+            <h2 className='text-left text-gray-400'>Total Price: { totalPrice}</h2>
         </div>
     );
 };
 
 export default Cart;
-
-
-{/* <h3>Credit Hour Remaining 7 hr</h3>
-            <h2>Course Name</h2>
-            <h3>{course.courseName}</h3>
-            <h4>Total Credit Hour : 13</h4>
-            <h4>Total Price : 48000 USD</h4> */}

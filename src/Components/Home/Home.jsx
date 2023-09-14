@@ -11,6 +11,7 @@ const Home = () => {
     const [selectedCourse, setSelectedCourse] = useState([]);
     const [remainingCredit, setRemainingCredit] = useState(20);
     const [totalCreditHour, setTotalCreditHour] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     
     useEffect(() => {
         fetch('./data.json')
@@ -23,38 +24,38 @@ const Home = () => {
 
         const isExist = selectedCourse.find(singleSelectedCourse=> singleSelectedCourse.id == course.id)
         let creditHour = course.creditHours;
+        let totalPrice = course.price;
         const maxCredit = 20;
         if (isExist) {
            return toast('This Course Already Selected!');
         }
         else {
-            selectedCourse.forEach(item => {
-            creditHour += item.creditHours;
+            selectedCourse.forEach(item => {  
+                creditHour += item.creditHours;
+                totalPrice += item.price
             })
             const remainingCredit = maxCredit - creditHour;
             if (creditHour > maxCredit) {
                 return toast('You Cant Exceed the Maximum Credit Hours')
             }
             else {
+                
                 setTotalCreditHour(creditHour);
                 setRemainingCredit(remainingCredit);
                 setSelectedCourse([...selectedCourse, course]);
+
+                // setting total price of the course 
+                setTotalPrice(totalPrice)
             }  
         }
-
     }
-
-
-
-
-    console.log(selectedCourse);
 
     return (
         <div className=' text-center font-bold'>
             <h2 className=' text-center font-bold bg-red-400'>Course Registration of PH with Shariar Islam</h2>
             <div className='flex justify-between'>
                 <div>
-                    <h2>Course here</h2>
+                    {/* <h2>Course here</h2> */}
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     courses.map((course, idx) => (
@@ -76,7 +77,7 @@ const Home = () => {
                 </div>
                 </div>
 
-                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCreditHour={totalCreditHour}></Cart>
+                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCreditHour={totalCreditHour} totalPrice={totalPrice}></Cart>
                     <ToastContainer></ToastContainer>
                 
             </div>
