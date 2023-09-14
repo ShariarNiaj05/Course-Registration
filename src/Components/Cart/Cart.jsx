@@ -1,20 +1,20 @@
 import React from 'react';
 
-const Cart = ({ selectedCourse }) => {
+const Cart = ({ selectedCourse, remainingCredit, totalCreditHour }) => {
     // const {courseName, creditHours, id, price} = selectedCourse
     console.log(selectedCourse);
 
     // let count = 1;
     return (
         <div className='mx-auto px-5 mt-5'>
+            <h2>Total Credit remainig: { remainingCredit}</h2>
             <h3 className='text-xl '>Selected Course: { selectedCourse.length}</h3>
             {
                 selectedCourse.map((course, idx) => (
-                    <li>{ course.courseName}</li>
-                   
+                    <li>{course.courseName}</li>  
                 ))
             }
-
+            <h2>Total Credit Hour: { totalCreditHour}</h2>
         </div>
     );
 };

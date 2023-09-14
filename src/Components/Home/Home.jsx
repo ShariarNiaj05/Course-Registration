@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
-// import { BsBookHalf } from "react-icons/all-files/fa/FaBeer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaBookOpen } from "react-icons/fa";
 
 
 
 const Home = () => {
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState([]);
-
+    const [remainingCredit, setRemainingCredit] = useState(20);
+    const [totalCreditHour, setTotalCreditHour] = useState(0);
+    
     useEffect(() => {
         fetch('./data.json')
         .then(res => res.json())
         .then (data=> setCourses(data))
     }, [])
 
+
     const handleSelectedCourse = (course) => {
 
         const isExist = selectedCourse.find(singleSelectedCourse=> singleSelectedCourse.id == course.id)
-
+        let creditHour = course.creditHours;
+        const maxCredit = 20;
         if (isExist) {
-            return alert('This course already been selected')
+           return toast('This Course Already Selected!');
         }
         else {
-            
-            setSelectedCourse([...selectedCourse, course]);
+            selectedCourse.forEach(item => {
+            creditHour += item.creditHours;
+            })
+            const remainingCredit = maxCredit - creditHour;
+            if (creditHour > maxCredit) {
+                return toast('You Cant Exceed the Maximum Credit Hours')
+            }
+            else {
+                setTotalCreditHour(creditHour);
+                setRemainingCredit(remainingCredit);
+                setSelectedCourse([...selectedCourse, course]);
+            }  
         }
 
     }
@@ -48,10 +64,11 @@ const Home = () => {
                                 <p>{course.shortDescription}</p>
                                 <div className='flex justify-evenly'>
                                 <h4>$ Price: {course.price}</h4>
-                                <h2></h2>
-                                <h4> Credit: { course.creditHours}hr</h4>
+                                <h2><FaBookOpen></FaBookOpen></h2>
+                                <h4>Credit: { course.creditHours}hr</h4>
                                 </div>
-                                <button onClick={()=>handleSelectedCourse(course)} className='bg-blue-700 text-white px-5 py-3'>Select</button>
+                            <button onClick={() => handleSelectedCourse(course)} className='bg-blue-700 text-white px-5 py-3'>Select</button>
+                            
 
                         </div>
                 ))
@@ -59,8 +76,8 @@ const Home = () => {
                 </div>
                 </div>
 
-               
-                    <Cart selectedCourse={selectedCourse}></Cart>
+                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCreditHour={totalCreditHour}></Cart>
+                    <ToastContainer></ToastContainer>
                 
             </div>
         </div>
