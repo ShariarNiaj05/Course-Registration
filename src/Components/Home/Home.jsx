@@ -36,6 +36,7 @@ const Home = () => {
             })
             const remainingCredit = maxCredit - creditHour;
             if (creditHour > maxCredit) {
+                toast('Total Remaining Credit Cant be Negative')
                 return toast('You Cant Exceed the Maximum Credit Hours')
             }
             else {
@@ -61,14 +62,14 @@ const Home = () => {
                     courses.map((course, idx) => (
                         <div key={idx} className='mr-3 ml-3 mt-4 mb-5'>
                                 <img className='w-full' src={ course.image}></img>
-                                <h2>{course.courseName}</h2>
-                                <p>{course.shortDescription}</p>
-                                <div className='flex justify-evenly'>
+                                <h2 className='text-left'>{course.courseName}</h2>
+                                <p className='text-left font-normal'>{course.shortDescription}</p>
+                                <div className='flex justify-evenly px-4 items-center'>
                                 <h4>$ Price: {course.price}</h4>
                                 <h2><FaBookOpen></FaBookOpen></h2>
                                 <h4>Credit: { course.creditHours}hr</h4>
                                 </div>
-                            <button onClick={() => handleSelectedCourse(course)} className='bg-blue-700 text-white px-5 py-3'>Select</button>
+                            <button onClick={() => handleSelectedCourse(course)} className='bg-blue-700 text-white px-5 py-3 w-full rounded-lg mt-3'>Select</button>
                             
 
                         </div>
