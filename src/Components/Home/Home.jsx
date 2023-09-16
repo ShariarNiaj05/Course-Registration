@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaBookOpen } from "react-icons/fa";
+import { FaBookOpen, FaDollarSign } from "react-icons/fa";
 
 
 
@@ -64,11 +64,12 @@ const Home = () => {
                                 <img className='w-full' src={ course.image}></img>
                                 <h2 className='text-left'>{course.courseName}</h2>
                                 <p className='text-left font-normal'>{course.shortDescription}</p>
-                                <div className='flex justify-evenly px-4 items-center'>
-                                <h4>$ Price: {course.price}</h4>
-                                <h2><FaBookOpen></FaBookOpen></h2>
+                            <div className='flex justify-evenly px-4 items-center'>
+                                <h2><FaDollarSign></FaDollarSign></h2>
+                                <h4 className=' lg:ml-[-30px]'>Price: {course.price}</h4>
+                                <h2 className=' lg:mr-[-24px]'><FaBookOpen></FaBookOpen></h2>
                                 <h4>Credit: { course.creditHours}hr</h4>
-                                </div>
+                            </div>
                             <button onClick={() => handleSelectedCourse(course)} className='bg-blue-700 text-white px-5 py-3 w-full rounded-lg mt-3'>Select</button>
                             
 

@@ -20,7 +20,7 @@ Initially, I created **[courses, setCourses] = useState([])** state for all the 
 ![Here I put all the course information that has been set through useEffect hook.](https://i.ibb.co/DGTpfky/use-State-for-courses.png)
 
 ### 2. [selectedCourse, setSelectedCourse] = useState([])
-This state has been used to contain the selected course. This state starts with an empty array. When the user selects one or more courses will be stored here.
+This state has been used to contain the selected course. This state starts with an empty array. When the user selects one or more courses will be stored here. The information in passed thorough using map functionality on **selectedCourses.map** and passed the information using onClick handler.
 
 ### 3. [remainingCredit, setRemainingCredit] = useState(20)
 This state has been used to store the remaining credit. Initially, the value is 20 credits as per requirement. when the user selects one or multiple courses the remaining credit hours will be lessened from the assigned credited hours.
